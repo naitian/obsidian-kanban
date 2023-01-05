@@ -46,7 +46,7 @@ export function listItemToItemData(
   const hideTagsInTitle = stateManager.getSetting('hide-tags-in-title');
   const hideDateInTitle = stateManager.getSetting('hide-date-in-title');
 
-  const itemBoundary = getNodeContentBoundary(item.children[0] as Paragraph);
+  const itemBoundary = getNodeContentBoundary(item);
   let itemContent = getStringFromBoundary(md, itemBoundary);
 
   // Handle empty task

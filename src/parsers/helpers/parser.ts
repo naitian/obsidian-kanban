@@ -22,11 +22,15 @@ export function executeDeletion(str: string) {
 }
 
 export function replaceNewLines(str: string) {
-  return str.trim().replace(/(\r\n|\n)/g, '<br>');
+  const lines: string[] = str.trim().split('\n')
+  const shifted = [lines[0], ...lines.splice(1).map(v => `  ${v}`)]
+  return shifted.join('\n').trim()
 }
 
 export function replaceBrs(str: string) {
-  return str.replace(/<br>/g, '\n').trim();
+  const lines: string[] = str.trim().split('\n')
+  const shifted = [lines[0], ...lines.splice(1).map(v => v.slice(2))]
+  return shifted.join('\n').trim()
 }
 
 export function parseLaneTitle(str: string) {
